@@ -28,6 +28,10 @@ public class SplashController implements Initializable {
     Image image;
     @javafx.fxml.FXML
     private Button btnProceed;
+    @javafx.fxml.FXML
+    private StackPane pane;
+    @javafx.fxml.FXML
+    private TextArea textArea;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

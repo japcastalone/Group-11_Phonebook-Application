@@ -29,7 +29,9 @@ public class CreateProductController implements Initializable {
     public TextField tfDesc;
     @FXML
     private ComboBox<Uom> cbUom;
+    @FXML
     public Button btnSubmit;
+    @FXML
     public Button btnNext;
 
     @Setter
@@ -40,6 +42,8 @@ public class CreateProductController implements Initializable {
     ProductService productService;
     @Setter
     UomService  uomService;
+    @FXML
+    private Button btnBack;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
@@ -63,6 +67,7 @@ public class CreateProductController implements Initializable {
         cbUom.getSelectionModel().clearSelection();
     }
 
+    @FXML
     public void onNext(ActionEvent actionEvent) {
         System.out.println("CreateProductController:onBack ");
         Node node = ((Node) (actionEvent.getSource()));
@@ -73,6 +78,7 @@ public class CreateProductController implements Initializable {
         stage.show();
     }
 
+    @FXML
     public void onSubmit(ActionEvent actionEvent) throws Exception{
         Product product = new Product();
         product.setName(tfName.getText());
@@ -90,6 +96,7 @@ public class CreateProductController implements Initializable {
         }
     }
 
+    @FXML
     public void onBack(ActionEvent actionEvent) {
         System.out.println("CreateProductController:onBack ");
         Node node = ((Node) (actionEvent.getSource()));

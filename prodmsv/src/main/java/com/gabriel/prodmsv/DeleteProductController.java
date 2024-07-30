@@ -20,8 +20,11 @@ import java.util.ResourceBundle;
 @Setter
 public class DeleteProductController implements Initializable {
     public TextField tfId;
+    @javafx.fxml.FXML
     public TextField tfName;
+    @javafx.fxml.FXML
     public TextField tfDesc;
+    @javafx.fxml.FXML
     public TextField tfUom;
     @Setter
     Stage stage;
@@ -31,6 +34,10 @@ public class DeleteProductController implements Initializable {
     ProductService productService;
     @Setter
     ProdManController controller;
+    @javafx.fxml.FXML
+    private Button btnBack;
+    @javafx.fxml.FXML
+    private Button btnSubmit;
 
     public void refresh(){
         Product product= ProdManController.product;
@@ -47,6 +54,7 @@ public class DeleteProductController implements Initializable {
         refresh();
     }
 
+    @javafx.fxml.FXML
     public void onBack(ActionEvent actionEvent) {
         System.out.println("CreateProductController:onBack ");
         Node node = ((Node) (actionEvent.getSource()));
@@ -58,6 +66,7 @@ public class DeleteProductController implements Initializable {
     }
 
 
+    @javafx.fxml.FXML
     public void onSubmit(ActionEvent actionEvent) {
         try {
             Product product = toObject(true);

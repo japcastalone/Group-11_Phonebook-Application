@@ -33,11 +33,17 @@ public class ProdManController implements Initializable {
     @Setter
     Scene deleteViewScene;
 
+    @FXML
     public TextField tfId;
+    @FXML
     public TextField tfName;
+    @FXML
     public TextField tfDesc;
+    @FXML
     public ImageView productImage;
+    @FXML
     public VBox prodman;
+    @FXML
     public TextField tfUom;
 
     Image puffy;
@@ -109,6 +115,7 @@ public class ProdManController implements Initializable {
         tfUom.setText("");
     }
 
+    @FXML
     public void onMouseClicked(MouseEvent mouseEvent) {
         product = lvProducts.getSelectionModel().getSelectedItem();
         if(product == null) {
@@ -119,6 +126,7 @@ public class ProdManController implements Initializable {
         System.out.println("clicked on " + product);
     }
 
+    @FXML
     public void onCreate(ActionEvent actionEvent) {
         System.out.println("ProdmanController:onNewProduct ");
         Node node = ((Node) (actionEvent.getSource()));
@@ -135,7 +143,7 @@ public class ProdManController implements Initializable {
                 createProductController.setProductService(productService);
                 createProductController.setProdManController(this);
                 createProductController.setParentScene(currentScene);
-                createViewScene = new Scene(root, 300, 600);
+                createViewScene = new Scene(root);
                 stage.setTitle("Manage Product");
                 stage.setScene(createViewScene);
                 stage.show();
@@ -152,6 +160,7 @@ public class ProdManController implements Initializable {
         }
     }
 
+    @FXML
     public void onUpdate(ActionEvent actionEvent) {
         System.out.println("ProdmanController:onUpdate ");
         Node node = ((Node) (actionEvent.getSource()));
@@ -179,6 +188,7 @@ public class ProdManController implements Initializable {
             System.out.println("ProdmanController: "+ ex.getMessage());
         }
     }
+    @FXML
     public void onDelete(ActionEvent actionEvent) {
         System.out.println("ProdmanController:onDelete ");
         Node node = ((Node) (actionEvent.getSource()));
@@ -207,6 +217,7 @@ public class ProdManController implements Initializable {
         }
     }
 
+    @FXML
     public void onClose(ActionEvent actionEvent) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Exit and loose changes? " , ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
         alert.showAndWait();
