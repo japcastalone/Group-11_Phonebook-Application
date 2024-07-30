@@ -14,6 +14,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -42,8 +43,6 @@ public class ProdManController implements Initializable {
     @FXML
     public ImageView productImage;
     @FXML
-    public VBox prodman;
-    @FXML
     public TextField tfUom;
 
     Image puffy;
@@ -66,6 +65,8 @@ public class ProdManController implements Initializable {
     DeleteProductController deleteProductController;
     CreateProductController createProductController;
     ProductService productService;
+    @FXML
+    private HBox prodman;
 
     void refresh() throws Exception{
         productService = ProductService.getService();
@@ -175,7 +176,7 @@ public class ProdManController implements Initializable {
                 updateProductController.setController(this);
                 updateProductController.setStage(this.stage);
                 updateProductController.setParentScene(currentScene);
-                updateViewScene = new Scene(root, 300, 600);
+                updateViewScene = new Scene(root);
             }
             else{
                 updateProductController.refresh();
@@ -203,7 +204,7 @@ public class ProdManController implements Initializable {
                 deleteProductController.setController(this);
                 deleteProductController.setStage(this.stage);
                 deleteProductController.setParentScene(currentScene);
-                deleteViewScene = new Scene(root, 300, 600);
+                deleteViewScene = new Scene(root);
             }
             else{
                 deleteProductController.refresh();

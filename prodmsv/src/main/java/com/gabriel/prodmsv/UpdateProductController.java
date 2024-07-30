@@ -5,10 +5,10 @@ import com.gabriel.prodmsv.ServiceImpl.UomService;
 import com.gabriel.prodmsv.model.Product;
 import com.gabriel.prodmsv.model.Uom;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -27,17 +27,17 @@ public class UpdateProductController implements Initializable {
     @Setter
     ProdManController controller;
 
+    @FXML
+    private TextField tfId;
     int id;
     @FXML
     private TextField tfName;
     @FXML
     private TextField tfDesc;
     @FXML
+    private TextField tfUom;
+    @FXML
     private ComboBox<Uom> cbUom;
-    @FXML
-    private Button btnBack;
-    @FXML
-    private Button btnSubmit;
 
     public void refresh() throws Exception{
         Product product=ProdManController.product;
@@ -62,7 +62,6 @@ public class UpdateProductController implements Initializable {
         }
     }
 
-    @FXML
     public void onSubmit(ActionEvent actionEvent) {
         Product product = new Product();
         product.setId(Integer.parseInt(tfId.getText()));
@@ -83,7 +82,6 @@ public class UpdateProductController implements Initializable {
         }
     }
 
-    @FXML
     public void onBack(ActionEvent actionEvent) {
         System.out.println("CreateProductController:onBack ");
         Node node = ((Node) (actionEvent.getSource()));

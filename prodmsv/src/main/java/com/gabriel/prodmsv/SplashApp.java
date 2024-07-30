@@ -16,7 +16,7 @@ public class SplashApp extends Application {
         Parent root = (Parent)fxmlLoader.load();
         SplashController productView = fxmlLoader.getController();
         productView.setStage(stage);
-        Scene scene = new Scene(root, 300, 600);
+        Scene scene = new Scene(root);
         String css=this.getClass().getResource("/css/splash.css").toExternalForm();
         scene.getStylesheets().add(css);
         stage.setTitle("Production Management!");
