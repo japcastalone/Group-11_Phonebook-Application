@@ -15,14 +15,13 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import lombok.Data;
 import lombok.Setter;
 
 import java.net.URL;
-import java.util.*;
+import java.util.ResourceBundle;
 @Data
 public class ProdManController implements Initializable {
     @Setter

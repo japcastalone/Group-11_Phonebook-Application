@@ -1,0 +1,60 @@
+/* Global styles */
+.root {
+    -fx-font-family: "Open Sans", sans-serif;
+    -fx-background-color: #f7f7f7;
+}
+
+#productImage {
+    -fx-border-radius: 10px;
+    -fx-padding: 10px;
+}
+
+#lvProducts {
+    -fx-background-color: #fff;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 10px;
+    -fx-padding: 10px;
+}
+
+TextField {
+    -fx-background-color: #fff;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 10px;
+    -fx-padding: 10px;
+}
+
+Button {
+    -fx-background-color: #337ab7;
+    -fx-text-fill: #fff;
+    -fx-border-radius: 10px;
+    -fx-padding: 10px 10px;
+    -fx-cursor: hand;
+    -fx-transition: background-color 0.2s;
+}
+
+Button:hover {
+    -fx-background-color: #23527c;
+}
+
+Button:pressed {
+    -fx-background-color: #1d4e73;
+    -fx-scale-x: 0.95;
+    -fx-scale-y: 0.95;
+}
+
+Label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+VBox {
+    -fx-spacing: 20px;
+    -fx-padding: 2px;
+}
+
+HBox {
+    -fx-spacing: 20px;
+    -fx-padding: 2px;
+    -fx-alignment: center;
+}

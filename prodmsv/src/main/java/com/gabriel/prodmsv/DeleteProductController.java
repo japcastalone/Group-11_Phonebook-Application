@@ -2,12 +2,14 @@ package com.gabriel.prodmsv;
 
 import com.gabriel.prodmsv.ServiceImpl.ProductService;
 import com.gabriel.prodmsv.model.Product;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import lombok.Setter;

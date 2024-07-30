@@ -1,10 +1,9 @@
 package com.gabriel.prodmsv;
 
 import com.gabriel.prodmsv.ServiceImpl.ProductService;
+import com.gabriel.prodmsv.ServiceImpl.UomService;
 import com.gabriel.prodmsv.model.Product;
 import com.gabriel.prodmsv.model.Uom;
-import com.gabriel.prodmsv.ServiceImpl.UomService;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

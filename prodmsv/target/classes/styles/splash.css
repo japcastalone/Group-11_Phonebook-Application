@@ -1,0 +1,44 @@
+/* Global styles */
+.root {
+    -fx-font-family: "Open Sans", sans-serif;
+    -fx-background-color: #f7f7f7;
+}
+
+/* Image view styles */
+#productImage {
+    -fx-border-radius: 10px;
+    -fx-padding: 10px;
+}
+
+/* Text area styles */
+TextArea {
+    -fx-background-color: #fff;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 10px;
+    -fx-padding: 10px;
+}
+
+/* Button styles */
+Button {
+    -fx-background-color: #337ab7;
+    -fx-text-fill: #fff;
+    -fx-border-radius: 10px;
+    -fx-padding: 10px 20px;
+    -fx-cursor: hand;
+    -fx-transition: background-color 0.2s;
+}
+
+Button:hover {
+    -fx-background-color: #23527c;
+}
+
+Button:pressed {
+    -fx-background-color: #1d4e73;
+    -fx-scale-x: 0.95;
+    -fx-scale-y: 0.95;
+}
+
+/* Add some padding to the HBox */
+HBox {
+    -fx-padding: 20px;
+}
