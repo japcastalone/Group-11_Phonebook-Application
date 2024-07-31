@@ -1,8 +1,8 @@
-com\gabriel\prodmsapp\entity\UomData.class
-com\gabriel\prodmsapp\service\UomService.class
-com\gabriel\prodmsapp\repository\ProductDataRepository.class
-com\gabriel\prodmsapp\entity\ProductData.class
-com\gabriel\prodmsapp\repository\UomDataRepository.class
-com\gabriel\prodmsapp\model\Uom.class
-com\gabriel\prodmsapp\service\ProductService.class
-com\gabriel\prodmsapp\model\Product.class
+com\gabriel\prodmsapp\repository\ContactDataRepository.class
+com\gabriel\prodmsapp\model\Contact.class
+com\gabriel\prodmsapp\service\ContactService.class
+com\gabriel\prodmsapp\entity\ContactData.class
+com\gabriel\prodmsapp\repository\CategoryDataRepository.class
+com\gabriel\prodmsapp\service\CategoryService.class
+com\gabriel\prodmsapp\entity\CategoryData.class
+com\gabriel\prodmsapp\model\Category.class

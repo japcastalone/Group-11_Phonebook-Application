@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gabriel.prodmsv.DeleteProductController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gabriel.prodmsv.DeleteContactController">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="300.0" prefWidth="300.0">
          <children>
@@ -41,22 +41,22 @@
             </HBox>
             <HBox layoutX="10.0" layoutY="63.0" prefHeight="50.0" prefWidth="300.0">
                <children>
-                  <Label prefWidth="100.0" text="Description">
+                  <Label prefWidth="100.0" text="Number">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="tfDesc" />
+                  <TextField fx:id="tfNum" />
                </children>
             </HBox>
             <HBox layoutX="10.0" layoutY="113.0" prefHeight="50.0" prefWidth="300.0">
                <children>
-                  <Label prefWidth="100.0" text="Unit of Measure">
+                  <Label prefWidth="100.0" text="Category">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="tfUom" />
+                  <TextField fx:id="tfCategory" />
                </children>
             </HBox>
             <HBox layoutX="10.0" layoutY="263.0" prefHeight="50.0" prefWidth="300.0">

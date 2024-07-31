@@ -50,10 +50,10 @@ public class SplashController implements Initializable {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(SplashApp.class.getResource("prodman-view.fxml"));
             Parent root = (Parent)fxmlLoader.load();
-            ProdManController prodManController  = fxmlLoader.getController();
+            ConManController prodManController  = fxmlLoader.getController();
             prodManController.setStage(stage);
             Scene scene = new Scene(root);
-            stage.setTitle("Product Management");
+            stage.setTitle("Contact Management");
             stage.setScene(scene);
             stage.show();
         } catch (Exception ex) {

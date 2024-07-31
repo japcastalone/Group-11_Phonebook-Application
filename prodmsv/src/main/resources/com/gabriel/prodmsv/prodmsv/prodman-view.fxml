@@ -6,7 +6,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox fx:id="prodman" alignment="CENTER" prefHeight="608.0" prefWidth="349.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gabriel.prodmsv.ProdManController">
+<VBox fx:id="prodman" alignment="CENTER" prefHeight="608.0" prefWidth="349.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gabriel.prodmsv.ConManController">
   <padding>
     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
   </padding>
@@ -32,13 +32,13 @@
    <HBox layoutX="30.0" layoutY="269.0" prefHeight="50.0" prefWidth="200.0">
       <children>
          <Label prefWidth="100.0" text="Description" />
-         <TextField fx:id="tfDesc" prefHeight="25.0" prefWidth="200.0" />
+         <TextField fx:id="tfNum" prefHeight="25.0" prefWidth="200.0" />
       </children>
    </HBox>
    <HBox layoutX="30.0" layoutY="436.0" prefHeight="50.0" prefWidth="200.0">
       <children>
          <Label prefWidth="100.0" text="Unit of Measure" />
-         <TextField fx:id="tfUom" prefHeight="25.0" prefWidth="200.0" />
+         <TextField fx:id="tfCategory" prefHeight="25.0" prefWidth="200.0" />
       </children>
    </HBox>
    <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0">

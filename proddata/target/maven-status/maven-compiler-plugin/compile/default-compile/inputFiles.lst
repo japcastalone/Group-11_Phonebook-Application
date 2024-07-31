@@ -1,8 +1,8 @@
-C:\Users\jcast\Documents\IntelliJ\prodmanappv3\proddata\src\main\java\com\gabriel\prodmsapp\entity\ProductData.java
-C:\Users\jcast\Documents\IntelliJ\prodmanappv3\proddata\src\main\java\com\gabriel\prodmsapp\entity\UomData.java
-C:\Users\jcast\Documents\IntelliJ\prodmanappv3\proddata\src\main\java\com\gabriel\prodmsapp\model\Product.java
-C:\Users\jcast\Documents\IntelliJ\prodmanappv3\proddata\src\main\java\com\gabriel\prodmsapp\model\Uom.java
-C:\Users\jcast\Documents\IntelliJ\prodmanappv3\proddata\src\main\java\com\gabriel\prodmsapp\repository\UomDataRepository.java
-C:\Users\jcast\Documents\IntelliJ\prodmanappv3\proddata\src\main\java\com\gabriel\prodmsapp\service\UomService.java
-C:\Users\jcast\Documents\IntelliJ\prodmanappv3\proddata\src\main\java\com\gabriel\prodmsapp\service\ProductService.java
-C:\Users\jcast\Documents\IntelliJ\prodmanappv3\proddata\src\main\java\com\gabriel\prodmsapp\repository\ProductDataRepository.java
+C:\Users\jcast\Documents\IntelliJ\prodmanappv3\proddata\src\main\java\com\gabriel\prodmsapp\repository\CategoryDataRepository.java
+C:\Users\jcast\Documents\IntelliJ\prodmanappv3\proddata\src\main\java\com\gabriel\prodmsapp\entity\ContactData.java
+C:\Users\jcast\Documents\IntelliJ\prodmanappv3\proddata\src\main\java\com\gabriel\prodmsapp\model\Contact.java
+C:\Users\jcast\Documents\IntelliJ\prodmanappv3\proddata\src\main\java\com\gabriel\prodmsapp\model\Category.java
+C:\Users\jcast\Documents\IntelliJ\prodmanappv3\proddata\src\main\java\com\gabriel\prodmsapp\service\CategoryService.java
+C:\Users\jcast\Documents\IntelliJ\prodmanappv3\proddata\src\main\java\com\gabriel\prodmsapp\service\ContactService.java
+C:\Users\jcast\Documents\IntelliJ\prodmanappv3\proddata\src\main\java\com\gabriel\prodmsapp\repository\ContactDataRepository.java
+C:\Users\jcast\Documents\IntelliJ\prodmanappv3\proddata\src\main\java\com\gabriel\prodmsapp\entity\CategoryData.java

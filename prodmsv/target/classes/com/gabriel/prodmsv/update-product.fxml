@@ -6,13 +6,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gabriel.prodmsv.UpdateProductController">
+<AnchorPane prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gabriel.prodmsv.UpdateContactController">
    <children>
       <HBox alignment="CENTER_LEFT" prefHeight="300.0" prefWidth="600.0" spacing="20.0">
          <children>
             <!-- Left Side: Image and Header -->
-            <VBox prefHeight="300.0" prefWidth="200.0" spacing="10.0" alignment="CENTER">
-               <HBox prefHeight="50.0" prefWidth="200.0" alignment="CENTER">
+            <VBox alignment="CENTER" prefHeight="300.0" prefWidth="200.0" spacing="10.0">
+               <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
                   <children>
                      <Label alignment="CENTER" contentDisplay="CENTER" text="Update Product" textAlignment="CENTER" textFill="#e12323">
                         <font>
@@ -30,7 +30,7 @@
             </VBox>
 
             <!-- Right Side: Form and Buttons -->
-            <VBox prefHeight="300.0" prefWidth="400.0" spacing="10.0" alignment="CENTER">
+            <VBox alignment="CENTER" prefHeight="300.0" prefWidth="400.0" spacing="10.0">
                <HBox prefHeight="50.0" prefWidth="400.0" spacing="10.0">
                   <children>
                      <Label prefWidth="100.0" text="Name" />
@@ -39,14 +39,14 @@
                </HBox>
                <HBox prefHeight="50.0" prefWidth="400.0" spacing="10.0">
                   <children>
-                     <Label prefWidth="100.0" text="Description" />
+                     <Label prefWidth="100.0" text="Number" />
                      <TextField fx:id="tfDesc" />
                   </children>
                </HBox>
                <HBox prefHeight="50.0" prefWidth="400.0" spacing="10.0">
                   <children>
-                     <Label prefWidth="100.0" text="Uom" />
-                     <ComboBox fx:id="cbUom" />
+                     <Label prefWidth="100.0" text="Category" />
+                     <ComboBox fx:id="cbCategory" />
                   </children>
                </HBox>
                <HBox prefHeight="50.0" prefWidth="400.0" spacing="10.0">
