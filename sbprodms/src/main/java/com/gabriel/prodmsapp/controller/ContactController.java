@@ -17,7 +17,7 @@ public class ContactController {
     @Autowired
     private ContactService contactService;
 
-    @GetMapping("/api/product")
+    @GetMapping("/api/contact")
     public ResponseEntity<?> listProducts()
     {
         HttpHeaders headers = new HttpHeaders();
@@ -34,7 +34,7 @@ public class ContactController {
         return response;
     }
 
-    @PutMapping("api/contact")
+    @PutMapping("api/contacts")
     public ResponseEntity<?> add(@RequestBody Contact contact){
         logger.info("Input >> "+  contact.toString() );
         HttpHeaders headers = new HttpHeaders();
@@ -52,7 +52,7 @@ public class ContactController {
         return response;
     }
 
-    @PostMapping("api/contact")
+    @PostMapping("api/contacts")
     public ResponseEntity<?> update(@RequestBody Contact contact){
         logger.info("Update Input >> "+  contact.toString() );
         HttpHeaders headers = new HttpHeaders();
@@ -69,7 +69,7 @@ public class ContactController {
         return response;
     }
 
-    @GetMapping("api/product/{id}")
+    @GetMapping("api/contacts/{id}")
     public ResponseEntity<?> get(@PathVariable final Integer id){
         logger.info("Input product id >> "+  Integer.toString(id));
         HttpHeaders headers = new HttpHeaders();
@@ -85,7 +85,7 @@ public class ContactController {
         return response;
     }
 
-    @DeleteMapping("api/product/{id}")
+    @DeleteMapping("api/contacts/{id}")
     public ResponseEntity<?> delete(@PathVariable final Integer id){
         logger.info("Input >> "+  Integer.toString(id));
         HttpHeaders headers = new HttpHeaders();

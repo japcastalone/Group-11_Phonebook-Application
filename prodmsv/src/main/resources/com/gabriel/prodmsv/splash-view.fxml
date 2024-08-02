@@ -5,17 +5,17 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gabriel.prodmsv.SplashController">
+<AnchorPane prefHeight="300.0" prefWidth="665.0" stylesheets="/css/splash.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gabriel.prodmsv.SplashController">
    <children>
-      <HBox prefHeight="300.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" spacing="20.0" alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="300.0" prefWidth="600.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <StackPane fx:id="pane" prefHeight="200.0" prefWidth="300.0">
                <children>
                   <ImageView fx:id="productImage" fitHeight="194.0" fitWidth="285.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </StackPane>
-            <VBox prefHeight="300.0" prefWidth="300.0" alignment="CENTER" spacing="10.0">
-               <TextArea fx:id="textArea" prefHeight="100.0" prefWidth="200.0" promptText="\@Copyright" text="This is a Product Management Application template developed by Rijai Consulting." wrapText="true">
+            <VBox alignment="CENTER" prefHeight="300.0" prefWidth="300.0" spacing="10.0">
+               <TextArea fx:id="textArea" prefHeight="100.0" prefWidth="100.0" promptText="\@Copyright" text="This is a Phonebook Application developed by Group 11. :)" wrapText="true">
                   <padding>
                      <Insets bottom="10.0" />
                   </padding>

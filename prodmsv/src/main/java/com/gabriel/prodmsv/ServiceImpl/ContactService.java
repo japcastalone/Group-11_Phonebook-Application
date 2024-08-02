@@ -17,7 +17,7 @@ public class ContactService {
     Logger logger = LoggerFactory.getLogger(ContactService.class);
     static ContactService service=null;
     @Value("${service.api.endpoint}")
-    private String endpointUrl = "http://localhost:8080/api/product";
+    private String endpointUrl = "http://localhost:8080/api/contacts";
     RestTemplate restTemplate = null;
 
     public static ContactService getService(){
@@ -40,7 +40,7 @@ public class ContactService {
 
     public Contact getContact(Integer id) {
         String url = endpointUrl + "/" + Integer.toString(id);
-        logger.info("getProduct: " + url);
+        logger.info("getContact: " + url);
 
         HttpHeaders headers = new HttpHeaders();
         HttpEntity request = new HttpEntity<>(null, headers);
@@ -51,7 +51,7 @@ public class ContactService {
 
     public Contact[] getContacts() {
         String url = endpointUrl;
-        logger.info("getProducts: " + url);
+        logger.info("getContacts: " + url);
 
         HttpHeaders headers = new HttpHeaders();
         HttpEntity request = new HttpEntity<>(null, headers);

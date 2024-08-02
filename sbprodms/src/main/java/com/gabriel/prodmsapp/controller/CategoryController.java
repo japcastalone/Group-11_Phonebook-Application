@@ -17,8 +17,8 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
-    @GetMapping("/api/uom")
-    public ResponseEntity<?> listUoms()
+    @GetMapping("/api/category_data")
+    public ResponseEntity<?> listcategory()
     {
         HttpHeaders headers = new HttpHeaders();
         ResponseEntity<?> response;
@@ -34,7 +34,7 @@ public class CategoryController {
         return response;
     }
 
-    @PutMapping("api/category")
+    @PutMapping("api/category_data")
     public ResponseEntity<?> add(@RequestBody Category category){
         logger.info("Input >> "+  category.toString() );
         HttpHeaders headers = new HttpHeaders();
@@ -69,13 +69,13 @@ public class CategoryController {
         return response;
     }
 
-    @GetMapping("api/uom/{id}")
+    @GetMapping("api/category/{id}")
     public ResponseEntity<?> get(@PathVariable final Integer id){
-        logger.info("Input uom id >> "+  Integer.toString(id));
+        logger.info("Input category id >> "+  Integer.toString(id));
         HttpHeaders headers = new HttpHeaders();
         ResponseEntity<?> response;
         try {
-            Category category = categoryService.getUom(id);
+            Category category = categoryService.getCategory(id);
             response = ResponseEntity.ok(category);
         }
         catch( Exception ex)
@@ -85,7 +85,7 @@ public class CategoryController {
         return response;
     }
 
-    @DeleteMapping("api/uom/{id}")
+    @DeleteMapping("api/category/{id}")
     public ResponseEntity<?> delete(@PathVariable final Integer id){
         logger.info("Input >> "+  Integer.toString(id));
         HttpHeaders headers = new HttpHeaders();

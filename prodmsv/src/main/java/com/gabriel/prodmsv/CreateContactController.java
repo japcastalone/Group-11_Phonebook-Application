@@ -1,9 +1,9 @@
 package com.gabriel.prodmsv;
 
-import com.gabriel.prodmsv.ServiceImpl.ContactService;
 import com.gabriel.prodmsv.ServiceImpl.CategoryService;
-import com.gabriel.prodmsv.model.Contact;
+import com.gabriel.prodmsv.ServiceImpl.ContactService;
 import com.gabriel.prodmsv.model.Category;
+import com.gabriel.prodmsv.model.Contact;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -44,19 +44,30 @@ public class CreateContactController implements Initializable {
     Stage stage;
     @Setter
     Scene parentScene;
-    @Setter
-    ContactService contactService;
-    @Setter
-    CategoryService categoryService;
+
+    private ContactService contactService;
+    private CategoryService categoryService;
+
+    public void setContactService(ContactService contactService) {
+        this.contactService = contactService;
+    }
+
+    public void setCategoryService(CategoryService categoryService) {
+        this.categoryService = categoryService;
+    }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle){
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println("CreateContactController: initialize");
 
         try {
-            // Convert the Category array to a List
-            Category[] categoriesArray = categoryService.getCategories(); // This returns Category[]
-            List<Category> categories = Arrays.stream(categoriesArray).collect(Collectors.toList());
+            // Hardcoded categories
+            List<Category> categories = Arrays.asList(
+                    new Category(1, "work"),
+                    new Category(2, "personal"),
+                    new Category(3, "home"),
+                    new Category(4, "extra")
+            );
 
             cbCategory.getItems().clear();
             cbCategory.getItems().addAll(categories);
@@ -68,7 +79,7 @@ public class CreateContactController implements Initializable {
         }
     }
 
-    public void clearControlTexts(){
+    public void clearControlTexts() {
         tfName.setText("");
         tfNum.setText("");
         cbCategory.getSelectionModel().clearSelection();
@@ -86,16 +97,16 @@ public class CreateContactController implements Initializable {
     }
 
     @FXML
-    public void onSubmit(ActionEvent actionEvent) throws Exception{
+    public void onSubmit(ActionEvent actionEvent) throws Exception {
         Contact contact = new Contact();
         contact.setName(tfName.getText());
         contact.setNumber(tfNum.getText());
         Category category = cbCategory.getSelectionModel().getSelectedItem();
         if (category != null) {
             contact.setCategoryId(category.getId());
-            contact.setCategoryName(category.getName());
         }
         try {
+            // Ensure contactService is set properly before calling create
             contact = contactService.create(contact);
             conManController.refresh();  // Call the refresh method from ConManController
             onBack(actionEvent);

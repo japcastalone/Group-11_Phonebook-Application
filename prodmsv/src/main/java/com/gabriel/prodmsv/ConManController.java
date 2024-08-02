@@ -18,12 +18,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.stage.Window;
-import lombok.Data;
 import lombok.Setter;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-@Data
+
+@Setter
 public class ConManController implements Initializable {
     @Setter
     Stage stage;
@@ -41,9 +41,9 @@ public class ConManController implements Initializable {
     @FXML
     public TextField tfNum;
     @FXML
-    public ImageView productImage;
-    @FXML
     public TextField tfCategory;
+    @FXML
+    public ImageView productImage;
 
     Image puffy;
     Image wink;
@@ -57,9 +57,10 @@ public class ConManController implements Initializable {
     @FXML
     public Button closeButton;
 
-    public static Contact contact;
+    public static Contact contact; // Ensure this is public static
+
     @FXML
-    private ListView<Contact> lvProducts;
+    private ListView<Contact> lvContacts;
 
     UpdateContactController updateProductController;
     DeleteContactController deleteProductController;
@@ -69,12 +70,11 @@ public class ConManController implements Initializable {
     @FXML
     private HBox prodman;
 
-    void refresh() throws Exception{
+    void refresh() throws Exception {
         contactService = ContactService.getService();
         Contact[] contacts = contactService.getContacts();
-        categoryService = CategoryService.getService();
-        lvProducts.getItems().clear();
-        lvProducts.getItems().addAll(contacts);
+        lvContacts.getItems().clear();
+        lvContacts.getItems().addAll(contacts);
     }
 
     @Override
@@ -88,30 +88,28 @@ public class ConManController implements Initializable {
                 puffy = new Image(getClass().getResourceAsStream("/images/puffy.gif"));
                 wink = new Image(getClass().getResourceAsStream("/images/wink.gif"));
                 productImage.setImage(puffy);
-            }
-            catch(Exception ex){
+            } catch (Exception ex) {
                 System.out.println("Error with image: " + ex.getMessage());
             }
-        }
-        catch (Exception ex){
+        } catch (Exception ex) {
             showErrorDialog("Message: " + ex.getMessage());
         }
     }
 
-    public  void disableControls(){
-        tfId.editableProperty().set(false);
-        tfName.editableProperty().set(false);
-        tfNum.editableProperty().set(false);
-        tfCategory.editableProperty().set(false);
+    public void disableControls() {
+        tfId.setEditable(false);
+        tfName.setEditable(false);
+        tfNum.setEditable(false);
+        tfCategory.setEditable(false);
     }
 
-    public void setControlTexts(Contact contact){
+    public void setControlTexts(Contact contact) {
         tfName.setText(contact.getName());
         tfNum.setText(contact.getNumber());
         tfCategory.setText(contact.getCategoryName());
     }
 
-    public void clearControlTexts(){
+    public void clearControlTexts() {
         tfId.setText("");
         tfName.setText("");
         tfNum.setText("");
@@ -120,8 +118,8 @@ public class ConManController implements Initializable {
 
     @FXML
     public void onMouseClicked(MouseEvent mouseEvent) {
-        contact = lvProducts.getSelectionModel().getSelectedItem();
-        if(contact == null) {
+        contact = lvContacts.getSelectionModel().getSelectedItem();
+        if (contact == null) {
             return;
         }
         tfId.setText(Integer.toString(contact.getId()));
@@ -137,7 +135,7 @@ public class ConManController implements Initializable {
         Window window = currentScene.getWindow();
         window.hide();
         try {
-            if(createViewScene ==null) {
+            if (createViewScene == null) {
                 FXMLLoader fxmlLoader = new FXMLLoader(SplashApp.class.getResource("create-contact.fxml"));
                 Parent root = (Parent) fxmlLoader.load();
                 createContactController = fxmlLoader.getController();
@@ -146,33 +144,30 @@ public class ConManController implements Initializable {
                 createContactController.setContactService(contactService);
                 createContactController.setCategoryService(categoryService);
                 createContactController.setConManController(this);
-                createContactController.setParentScene(currentScene);
                 createViewScene = new Scene(root);
                 stage.setTitle("Manage Contact");
                 stage.setScene(createViewScene);
                 stage.show();
-            }
-            else{
+            } else {
                 stage.setScene(createViewScene);
                 stage.show();
             }
             createContactController.clearControlTexts();
             clearControlTexts();
-        }
-        catch(Exception ex){
-            System.out.println("ProdmanController: "+ ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("ConmanController: " + ex.getMessage());
         }
     }
 
     @FXML
     public void onUpdate(ActionEvent actionEvent) {
-        System.out.println("ProdmanController:onUpdate ");
+        System.out.println("ConmanController:onUpdate ");
         Node node = ((Node) (actionEvent.getSource()));
         Scene currentScene = node.getScene();
         Window window = currentScene.getWindow();
         window.hide();
         try {
-            if(updateViewScene ==null) {
+            if (updateViewScene == null) {
                 FXMLLoader fxmlLoader = new FXMLLoader(SplashApp.class.getResource("update-contact.fxml"));
                 Parent root = (Parent) fxmlLoader.load();
                 updateProductController = fxmlLoader.getController();
@@ -180,27 +175,26 @@ public class ConManController implements Initializable {
                 updateProductController.setStage(this.stage);
                 updateProductController.setParentScene(currentScene);
                 updateViewScene = new Scene(root);
-            }
-            else{
+            } else {
                 updateProductController.refresh();
             }
-            stage.setTitle("Create Contact");
+            stage.setTitle("Update Contact");
             stage.setScene(updateViewScene);
             stage.show();
-        }
-        catch(Exception ex){
-            System.out.println("ProdmanController: "+ ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("ConmanController: " + ex.getMessage());
         }
     }
+
     @FXML
     public void onDelete(ActionEvent actionEvent) {
-        System.out.println("ProdmanController:onDelete ");
+        System.out.println("ConmanController:onDelete ");
         Node node = ((Node) (actionEvent.getSource()));
         Scene currentScene = node.getScene();
         Window window = currentScene.getWindow();
         window.hide();
         try {
-            if(deleteViewScene  ==null) {
+            if (deleteViewScene == null) {
                 FXMLLoader fxmlLoader = new FXMLLoader(SplashApp.class.getResource("delete-contact.fxml"));
                 Parent root = (Parent) fxmlLoader.load();
                 deleteProductController = fxmlLoader.getController();
@@ -208,36 +202,37 @@ public class ConManController implements Initializable {
                 deleteProductController.setStage(this.stage);
                 deleteProductController.setParentScene(currentScene);
                 deleteViewScene = new Scene(root);
-            }
-            else{
+            } else {
                 deleteProductController.refresh();
             }
             stage.setTitle("Delete Contact");
             stage.setScene(deleteViewScene);
             stage.show();
-        }
-        catch(Exception ex){
-            System.out.println("ProdmanController: "+ ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("ConmanController: " + ex.getMessage());
         }
     }
 
     @FXML
     public void onClose(ActionEvent actionEvent) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Exit and loose changes? " , ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Exit and lose changes?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
         alert.showAndWait();
         if (alert.getResult() == ButtonType.YES) {
             Platform.exit();
         }
     }
 
-    void showErrorDialog(String message){
+    void showErrorDialog(String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setHeaderText(message);
-        // alert.getDialogPane().setExpandableContent(new ScrollPane(new TextArea(message)));
         alert.showAndWait();
     }
 
-    public void addItem(Contact contact){
-        lvProducts.getItems().add(contact);
+    public void addItem(Contact contact) {
+        lvContacts.getItems().add(contact);
+    }
+
+    public Contact getContact() {
+        return contact;
     }
 }

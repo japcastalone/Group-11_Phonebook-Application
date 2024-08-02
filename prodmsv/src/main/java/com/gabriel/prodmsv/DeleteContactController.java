@@ -3,6 +3,7 @@ package com.gabriel.prodmsv;
 import com.gabriel.prodmsv.ServiceImpl.ContactService;
 import com.gabriel.prodmsv.model.Contact;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -16,44 +17,53 @@ import java.util.ResourceBundle;
 
 @Setter
 public class DeleteContactController implements Initializable {
-    public TextField tfId;
-    @javafx.fxml.FXML
-    public TextField tfName;
-    @javafx.fxml.FXML
-    public TextField tfNum;
-    @javafx.fxml.FXML
-    public TextField tfCategory;
+    @FXML
+    private TextField tfId;
+    @FXML
+    private TextField tfName;
+    @FXML
+    private TextField tfNum;
+    @FXML
+    private TextField tfCategory;
     @Setter
-    Stage stage;
+    private Stage stage;
     @Setter
-    Scene parentScene;
+    private Scene parentScene;
     @Setter
-    ContactService contactService;
+    private ContactService contactService;
     @Setter
-    ConManController controller;
-    @javafx.fxml.FXML
+    private ConManController controller;
+    @FXML
     private Button btnBack;
-    @javafx.fxml.FXML
+    @FXML
     private Button btnSubmit;
-
-    public void refresh(){
-        Contact contact = ConManController.contact;
-        tfId.setText(Integer.toString(contact.getId()));
-        tfName.setText(contact.getName());
-        tfNum.setText(contact.getNumber());
-        tfCategory.setText(contact.getCategoryName());
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println("DeleteContactController: initialize");
-        tfId=new TextField("");
-        refresh();
+        try {
+            refresh();
+        } catch (Exception e) {
+            showErrorDialog("Initialization Error", e.getMessage());
+        }
     }
 
-    @javafx.fxml.FXML
+    public void refresh() throws Exception {
+        Contact contact = controller.getContact(); // Get contact from controller
+        if (contact != null) {
+            tfId.setText(Integer.toString(contact.getId()));
+            tfName.setText(contact.getName());
+            tfNum.setText(contact.getNumber());
+            tfCategory.setText(contact.getCategoryName());
+        } else {
+            // Handle case where contact is null, e.g., show an error or clear fields
+            showErrorDialog("Error", "No contact data available to display.");
+        }
+    }
+
+    @FXML
     public void onBack(ActionEvent actionEvent) {
-        System.out.println("CreateProductController:onBack ");
+        System.out.println("DeleteContactController:onBack ");
         Node node = ((Node) (actionEvent.getSource()));
         Window window = node.getScene().getWindow();
         window.hide();
@@ -62,45 +72,38 @@ public class DeleteContactController implements Initializable {
         stage.show();
     }
 
-
-    @javafx.fxml.FXML
+    @FXML
     public void onSubmit(ActionEvent actionEvent) {
         try {
-            Contact contact = toObject(true);
-            ContactService.getService().delete(contact.getId());
+            Contact contact = toObject();
+            contactService.delete(contact.getId());
             controller.refresh();
             controller.clearControlTexts();
-            Node node = ((Node) (actionEvent.getSource()));
-            Window window = node.getScene().getWindow();
-            window.hide();
-            stage.setTitle("Manage Contact");
-            stage.setScene(parentScene);
-            stage.show();
-        }
-        catch (Exception e){
-            String message="Error encountered deleting contact";
-            showErrorDialog(message,e.getMessage());
+            onBack(actionEvent);
+        } catch (Exception e) {
+            showErrorDialog("Error encountered deleting contact", e.getMessage());
         }
     }
 
-    protected Contact toObject(boolean isEdit){
+    private Contact toObject() {
         Contact contact = new Contact();
         try {
-            if(isEdit) {
-                contact.setId(Integer.parseInt(tfId.getText()));
-            }
+            contact.setId(Integer.parseInt(tfId.getText()));
             contact.setName(tfName.getText());
             contact.setNumber(tfNum.getText());
-        }catch (Exception e){
-            showErrorDialog("Error" ,e.getMessage());
+            // Note: Category is not used in delete, hence it's not set here.
+        } catch (NumberFormatException e) {
+            showErrorDialog("Error", "Invalid ID format");
+        } catch (Exception e) {
+            showErrorDialog("Error", e.getMessage());
         }
         return contact;
     }
 
-    public void showErrorDialog(String message,String addtlMessage){
+    private void showErrorDialog(String message, String additionalMessage) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setHeaderText(message);
-        alert.getDialogPane().setExpandableContent(new ScrollPane(new TextArea(addtlMessage)));
+        alert.getDialogPane().setExpandableContent(new ScrollPane(new TextArea(additionalMessage)));
         alert.showAndWait();
     }
 }

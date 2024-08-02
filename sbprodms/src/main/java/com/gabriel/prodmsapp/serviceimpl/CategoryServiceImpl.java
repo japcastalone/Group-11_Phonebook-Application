@@ -73,7 +73,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public Category getUom(Integer id) {
+    public Category getCategory(Integer id) {
         logger.info("Input id >> "+  Integer.toString(id) );
         Optional<CategoryData> optional = categoryDataRepository.findById(id);
         if(optional.isPresent()) {

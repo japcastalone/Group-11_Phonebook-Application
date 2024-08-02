@@ -18,7 +18,7 @@ public class CategoryService {
     Logger logger = LoggerFactory.getLogger(CategoryService.class);
     static CategoryService service=null;
     @Value("${service.api.endpoint}")
-    private String endpointUrl = "http://localhost:8080/api/uom";
+    private String endpointUrl = "http://localhost:8080/contact";
     RestTemplate restTemplate = null;
 
     public static CategoryService getService(){
@@ -41,7 +41,7 @@ public class CategoryService {
 
     public Category getCategory(Integer id) {
         String url = endpointUrl + "/" + Integer.toString(id);
-        logger.info("getUom: " + url);
+        logger.info("getCategory: " + url);
 
         HttpHeaders headers = new HttpHeaders();
         HttpEntity request = new HttpEntity<>(null, headers);
@@ -52,7 +52,7 @@ public class CategoryService {
 
     public Category[] getCategories() {
         String url = endpointUrl;
-        logger.info("getUoms: " + url);
+        logger.info("getCategory: " + url);
 
         HttpHeaders headers = new HttpHeaders();
         HttpEntity request = new HttpEntity<>(null, headers);

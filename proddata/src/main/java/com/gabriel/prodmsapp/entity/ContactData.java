@@ -10,7 +10,7 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "contact_data")
+@Table(name = "contacts")
 public class ContactData {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,9 +18,9 @@ public class ContactData {
     String name;
     String number;
 
-    int categoryId;
+    int CategoryId;
 
-    String categoryName;
+    String CategoryName;
 
 
     @UpdateTimestamp

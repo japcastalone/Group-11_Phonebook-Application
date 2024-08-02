@@ -7,8 +7,8 @@ public class Contact {
     int id;
     String name;
     String number;
-    int categoryId;
-    String categoryName;
+    int CategoryId;
+    String CategoryName;
 
     @Override
     public String toString(){
